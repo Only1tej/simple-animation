@@ -1,48 +1,50 @@
-import React, { Component } from "react";
-import { Spring } from "react-spring";
+import React, { useState } from "react";
+import { useSpring, animated } from "react-spring";
 
-export class Component2 extends Component {
-  render() {
-    return (
-      <Spring
-        from={{ x: 0, opacity: 0 }}
-        to={{ x: 100, opacity: 1 }}
-        config={{ delay: 1000, duration: 1000 }}
-      >
-        {(props) => (
-          <div style={props}>
-            <div style={c2Style}>
-              <h1>Component 2</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                ratione magnam nostrum a soluta reiciendis consequuntur corrupti
-                modi quod placeat qui ut, quia doloremque obcaecati! Illum
-                molestiae cum ex rerum?
-              </p>
-              <button style={btn} onClick={this.props.toggle}>
-                Toggle Component 3
-              </button>
-            </div>
-          </div>
-        )}
-      </Spring>
-    );
-  }
-}
-
-const c2Style = {
-  background: "slateBlue",
-  color: "white",
-  padding: "1.5rem",
-};
-
-const btn = {
-  background: "#333",
-  color: "#fff",
-  padding: "1rem 2rem",
-  border: "none",
-  textTransform: "uppercase",
-  margin: "15px 0",
+const Component2 = () => {
+  const [isToggle, setIsToggle] = useState(false);
+  const fade = useSpring({ opacity: isToggle ? 1 : 0 });
+  return (
+    <div className="c2Style">
+      <animated.div style={fade}>
+        <h1>Component 2</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ratione
+          magnam nostrum a soluta reiciendis consequuntur corrupti modi quod
+          placeat qui ut, quia doloremque obcaecati! Illum molestiae cum ex
+          rerum?
+        </p>
+      </animated.div>
+      <button className="btn" onClick={() => setIsToggle(!isToggle)}>
+        Toggle Component 2
+      </button>
+    </div>
+  );
 };
 
 export default Component2;
+
+{
+  /* <Spring */
+}
+//   from={{ x: 0, opacity: 0 }}
+//   to={{ x: 100, opacity: 1 }}
+//   config={{ delay: 1000, duration: 1000 }}
+// >
+//   {(props) => (
+//     <div style={props}>
+//       <div style={c2Style}>
+//         <h1>Component 2</h1>
+//         <p>
+//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+//           ratione magnam nostrum a soluta reiciendis consequuntur corrupti
+//           modi quod placeat qui ut, quia doloremque obcaecati! Illum
+//           molestiae cum ex rerum?
+//         </p>
+//         <button style={btn} onClick={this.props.toggle}>
+//           Toggle Component 3
+//         </button>
+//       </div>
+//     </div>
+//   )}
+// </Spring>

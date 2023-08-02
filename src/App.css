@@ -11,3 +11,38 @@ body {
 h1 {
   font-size: 3rem;
 }
+
+.c1Style {
+  background: steelBlue;
+  color: white;
+  padding: 1.5rem;
+}
+
+.counter {
+  background: #333;
+  text-align: center;
+  width: 100px;
+  border-radius: 50%;
+  margin: 1rem auto;
+}
+
+.c2Style {
+  background: slateBlue;
+  color: white;
+  padding: 1.5rem;
+}
+
+.c3Style {
+  background: green;
+  color: white;
+  padding: 1.5rem 1.5rem 5rem 1.5rem;
+}
+
+.btn {
+  background: #333;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  text-transform: uppercase;
+  margin: 15px 0;
+}
