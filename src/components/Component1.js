@@ -17,6 +17,17 @@ export default function Component1() {
               modi quod placeat qui ut, quia doloremque obcaecati! Illum
               molestiae cum ex rerum?
             </p>
+            {/* <Spring
+              from={{ number: 0 }}
+              to={{ number: 10 }}
+              config={{ duration: 10000 }}
+            >
+              {(props) => (
+                <div style={props}>
+                  <h1 style={counter}>{props.number}</h1>
+                </div>
+              )}
+            </Spring> */}
           </div>
         </div>
       )}
@@ -28,4 +39,12 @@ const c1Style = {
   background: "steelBlue",
   color: "white",
   padding: "1.5rem",
+};
+
+const counter = {
+  background: "#333",
+  textAlign: "center",
+  width: "100px",
+  borderRadius: "50%",
+  margin: "1rem auto",
 };
