@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useSpring, animated } from "react-spring";
 
 const Component1 = () => {
@@ -6,7 +6,7 @@ const Component1 = () => {
     from: { opacity: 0 },
     opacity: 1,
   });
-  console.log(fade);
+
   return (
     <animated.div className="c1Style" style={fade}>
       <h1>Component 1</h1>

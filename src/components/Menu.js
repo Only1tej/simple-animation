@@ -1,16 +1,17 @@
 import React from "react";
+import { animated } from "react-spring";
 
-const Menu = () => {
+const Menu = ({ style }) => {
   return (
     <>
-      <div className="menu">
-        <div className="header">
-          <h1>Welcome</h1>
-        </div>
-        <div>
-          <button className="headerButton">Menu</button>
-        </div>
-      </div>
+      <animated.div className="nav-wrapper" style={style}>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Store</a>
+          <a href="#">Tutorials</a>
+        </nav>
+      </animated.div>
     </>
   );
 };
