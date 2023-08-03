@@ -3,7 +3,11 @@ import { useSpring, animated } from "react-spring";
 
 const Component2 = () => {
   const [isToggle, setIsToggle] = useState(false);
-  const fade = useSpring({ opacity: isToggle ? 1 : 0 });
+  const fade = useSpring({
+    opacity: isToggle ? 1 : 0,
+    // fontSize: isToggle ? "20px" : "40px",
+    // color: isToggle ? "green" : "yellow",
+  });
   return (
     <div className="c2Style">
       <animated.div style={fade}>

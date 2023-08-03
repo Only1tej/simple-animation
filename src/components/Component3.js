@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Component3() {
+const Component3 = () => {
   return (
-    <div>
+    <div className="c3Style">
       <h1>Component 3</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
@@ -12,4 +12,6 @@ export default function Component3() {
       </p>
     </div>
   );
-}
+};
+
+export default Component3;

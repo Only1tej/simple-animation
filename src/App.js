@@ -4,6 +4,7 @@ import "./App.css";
 import Component1 from "./components/Component1";
 import Component2 from "./components/Component2";
 import Component3 from "./components/Component3";
+import Menu from "./components/Menu";
 
 const App = () => {
   const [showComponent3] = useState(false);
@@ -14,9 +15,18 @@ const App = () => {
 
   return (
     <div className="App">
+      <Menu />
       <Component1 />
       <Component2 />
-      {/* <Component2 toggle={toggle} /> */}
+      <Component3 />
+    </div>
+  );
+};
+
+export default App;
+
+{
+  /* <Component2 toggle={toggle} />
       <Transition
         native
         items={showComponent3}
@@ -32,9 +42,5 @@ const App = () => {
             </animated.div>
           ))
         }
-      </Transition>
-    </div>
-  );
-};
-
-export default App;
+      </Transition> */
+}
