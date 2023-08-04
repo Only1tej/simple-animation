@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  __RouterContext,
+} from "react-router-dom";
 // import { animated, useTransition } from "react-spring";
 
 const Routess = () => {
@@ -10,15 +16,19 @@ const Routess = () => {
         <NavLink to="/two">Two</NavLink>
         <NavLink to="/three">Three</NavLink>
       </ul>
-      <div>
-        <Routes>
-          <Route exact path="/" component={One} />
-          <Route exact path="/two" component={Two} />
-          <Route exact path="/three" component={Three} />
-        </Routes>
-      </div>
+      <Main />
     </Router>
   );
+};
+
+const Main = () => {
+  <div>
+    <Routes>
+      <Route exact path="/" component={One} />
+      <Route exact path="/two" component={Two} />
+      <Route exact path="/three" component={Three} />
+    </Routes>
+  </div>;
 };
 
 function NavLink(props) {
