@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 import Toggle from "./components/Toggle";
+import Transition from "./components/Transition";
 import Menu from "./components/Menu";
 import Checkout from "./components/Checkout";
 import logo from "./logo.jpg";
@@ -11,7 +12,7 @@ const App = () => {
   const navAnimation = useSpring({
     transform: isNavOpen
       ? `translate3d(0,0,0) scale(1)`
-      : `translate3d(-100%,0,0) scale(0.6)`,
+      : `translate3d(100%,0,0) scale(0.6)`,
   });
   const fade = useSpring({
     from: {
@@ -27,11 +28,12 @@ const App = () => {
         <button onClick={() => setNavOpen(!isNavOpen)} className="menu-button">
           Menu
         </button>
-        <Menu style={navAnimation} />
+        {/* <Menu style={navAnimation} /> */}
       </header>
       <main>
-        <Toggle />
-        <Checkout />
+        {/* <Toggle /> */}
+        <Transition />
+        <Checkout isOpen={isNavOpen} />
       </main>
     </animated.div>
   );
