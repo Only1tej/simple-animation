@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 import Toggle from "./components/Toggle";
+import Routess from "./components/Routess";
 import Transition from "./components/Transition";
 import Menu from "./components/Menu";
 import Checkout from "./components/Checkout";
@@ -31,8 +32,9 @@ const App = () => {
         {/* <Menu style={navAnimation} /> */}
       </header>
       <main>
-        {/* <Toggle /> */}
-        <Transition />
+        {/* <Toggle />  */}
+        <Routess />
+        {/* <Transition /> */}
         <Checkout isOpen={isNavOpen} />
       </main>
     </animated.div>

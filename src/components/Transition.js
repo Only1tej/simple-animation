@@ -24,7 +24,8 @@ const Transition = () => {
       key: 5,
     },
   ]);
-  const transition = useTransition(items, (item) => item.key, {
+  const transition = useTransition(items, {
+    keys: (item) => item.key,
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -33,7 +34,7 @@ const Transition = () => {
   return (
     <>
       <div>
-        {transition((styles, key, item) => (
+        {transition((styles, item, key) => (
           <animated.h1 style={styles} key={key}>
             {item.letter}
           </animated.h1>
