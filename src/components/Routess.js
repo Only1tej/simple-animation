@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link,
-  __RouterContext,
+  useLocation,
 } from "react-router-dom";
-// import { animated, useTransition } from "react-spring";
+import { animated, useTransition } from "react-spring";
+
+function useRouter() {
+  return useContext(useLocation());
+}
 
 const Routess = () => {
   return (
@@ -22,13 +26,24 @@ const Routess = () => {
 };
 
 const Main = () => {
-  <div>
-    <Routes>
-      <Route exact path="/" component={One} />
-      <Route exact path="/two" component={Two} />
-      <Route exact path="/three" component={Three} />
-    </Routes>
-  </div>;
+  const { location } = useLocation();
+
+  const transitions = useTransition(location, {
+    keys: (location) => location.key,
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
+
+  return transitions(({ item, props: style, key }) => (
+    <animated.div key={key} style={style}>
+      <Routes>
+        <Route exact path="/" component={One} />
+        <Route exact path="/two" component={Two} />
+        <Route exact path="/three" component={Three} />
+      </Routes>
+    </animated.div>
+  ));
 };
 
 function NavLink(props) {
