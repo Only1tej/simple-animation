@@ -36,7 +36,7 @@ const App = () => {
         {/* <Toggle />  */}
         {/* <Routess /> */}
         {/* <Transition /> */}
-        <Modal />
+        {/* <Modal /> */}
         <Checkout isOpen={isNavOpen} />
       </main>
     </animated.div>
