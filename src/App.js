@@ -5,6 +5,7 @@ import Routess from "./components/Routess";
 import Modal from "./components/Modal";
 import Transition from "./components/Transition";
 import Menu from "./components/Menu";
+import Accordion from "./components/Accordion";
 import Checkout from "./components/Checkout";
 import logo from "./logo.jpg";
 import "./App.css";
@@ -36,9 +37,10 @@ const App = () => {
         {/* <Toggle />  */}
         {/* <Routess /> */}
         {/* <Transition /> */}
-        {/* <Modal /> */}
-        <Checkout isOpen={isNavOpen} />
+        <Modal />
+        <Accordion />
       </main>
+      <Checkout isOpen={isNavOpen} />
     </animated.div>
   );
 };
