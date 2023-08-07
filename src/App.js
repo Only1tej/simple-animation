@@ -7,6 +7,7 @@ import Transition from "./components/Transition";
 import Menu from "./components/Menu";
 import Accordion from "./components/Accordion";
 import Waypoints from "./components/Waypoints";
+import Gesture from "./components/Gesture";
 import Checkout from "./components/Checkout";
 import logo from "./logo.jpg";
 import "./App.css";
@@ -40,7 +41,8 @@ const App = () => {
         {/* <Transition /> */}
         <Modal />
         <Accordion />
-        <Waypoints />
+        <Gesture />
+        {/* <Waypoints /> */}
       </main>
       <Checkout isOpen={isNavOpen} />
     </animated.div>

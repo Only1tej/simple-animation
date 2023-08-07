@@ -235,3 +235,10 @@ h1 {
   font-size: 2rem;
   padding: 20px;
 }
+
+.box {
+  background: var(--teal);
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
