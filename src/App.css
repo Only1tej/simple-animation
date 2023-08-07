@@ -229,3 +229,9 @@ h1 {
   border: solid 1px #eee;
   overflow: hidden;
 }
+
+.waypoints {
+  background: white;
+  font-size: 2rem;
+  padding: 20px;
+}

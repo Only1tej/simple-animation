@@ -6,6 +6,7 @@ import Modal from "./components/Modal";
 import Transition from "./components/Transition";
 import Menu from "./components/Menu";
 import Accordion from "./components/Accordion";
+import Waypoints from "./components/Waypoints";
 import Checkout from "./components/Checkout";
 import logo from "./logo.jpg";
 import "./App.css";
@@ -39,6 +40,7 @@ const App = () => {
         {/* <Transition /> */}
         <Modal />
         <Accordion />
+        <Waypoints />
       </main>
       <Checkout isOpen={isNavOpen} />
     </animated.div>
