@@ -4,20 +4,20 @@ import useMeasure from "./useMeasure";
 
 const Accordion = () => {
   const [on, toggle] = useState(false);
-  const [{ ref }, { height }] = useMeasure();
-  console.log("height :>> ", height);
+  const [{ ref }, { height, top }] = useMeasure();
   const animation = useSpring({
-    height: on ? height : 0,
+    overflow: "hidden",
+    height: on ? height + top * 2 : 0,
   });
 
   return (
     <div>
       <button onClick={() => toggle(!on)}>Toggle</button>
-      <div ref={ref}>
-        <animated.div style={animation} className="accordion">
+      <animated.div style={animation}>
+        <div ref={ref} className="accordion">
           <p>Hello I'm in the accordion</p>
-        </animated.div>
-      </div>
+        </div>
+      </animated.div>
     </div>
   );
 };
