@@ -7,7 +7,17 @@ const Gesture = () => {
   const [{ x }, api] = useSpring(() => ({ x: 0 }));
 
   const bind = useDrag(({ down, delta }) => {
-    if (down) api.start({ x: down ? delta[0] : 0 });
+    if (down) {
+      api.start({ x: delta[0] });
+    } else {
+      if (delta[0] > 200) {
+        api.start({ x: 250 });
+      } else if (delta[0] < -200) {
+        api.start({ x: -250 });
+      } else {
+        api.start({ x: 0 });
+      }
+    }
   });
   return (
     <animated.div
