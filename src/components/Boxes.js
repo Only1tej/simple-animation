@@ -5,6 +5,7 @@ import {
   useSpring,
   useSpringRef,
   useChain,
+  useTransition,
 } from "react-spring";
 
 const items = [0, 1, 2, 3, 4];
@@ -20,14 +21,27 @@ const Boxes = () => {
   });
 
   const transitionRef = useSpringRef();
-  const trail = useTrail(items.length, {
+  //With Trail
+  //   const trail = useTrail(items.length, {
+  //     ref: transitionRef,
+  //     from: { opacity: 0, transform: "scale(0)" },
+  //     to: { opacity: on ? 1 : 0, transform: on ? "scale(1)" : "scale(0)" },
+  //   });
+  const transition = useTransition(on ? items : [], {
     ref: transitionRef,
+    // trail: 400,
     from: { opacity: 0, transform: "scale(0)" },
-    to: { opacity: on ? 1 : 0, transform: on ? "scale(1)" : "scale(0)" },
+    enter: { opacity: 1, transform: "scale(1)" },
+    leave: { opacity: 0, transform: "scale(0)" },
   });
 
-  useChain(on ? [springRef, transitionRef] : [transitionRef, springRef]);
-
+  // useChain(on ? [springRef, transitionRef] : [transitionRef, springRef]);
+  // useChain([springRef, transitionRef], [0, 1], 2000);
+  useChain(
+    on ? [springRef, transitionRef] : [transitionRef, springRef],
+    [0, 1, 2],
+    1000
+  );
   return (
     <div className="full-height">
       <animated.div
@@ -35,8 +49,12 @@ const Boxes = () => {
         className="boxes-grid-two"
         onClick={() => toggle(!on)}
       >
-        {trail.map((animation, index) => (
+        {/* {trail.map((animation, index) => (
           <animated.div className="box-two" style={animation} key={index} />
+        ))}
+      </animated.div> */}
+        {transition(({ item, key, props }) => (
+          <animated.div className="box-two" style={props} key={key} />
         ))}
       </animated.div>
     </div>
